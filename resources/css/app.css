@@ -1,0 +1,105 @@
+@import 'tailwindcss';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+@source '../**/*.blade.php';
+@source '../**/*.js';
+
+@theme {
+    /* English Font */
+    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+        'Segoe UI Symbol', 'Noto Color Emoji';
+    /* Arabic Font */
+    --font-arabic: 'Tajawal', 'Instrument Sans', ui-sans-serif, system-ui, sans-serif;
+
+    /* Custom Color System - Saudi Health colors */
+    --color-primary-50: 236 253 245; /* Light mint green */
+    --color-primary-100: 209 250 229;
+    --color-primary-200: 167 243 208;
+    --color-primary-300: 110 231 183;
+    --color-primary-400: 52 211 153;
+    --color-primary-500: 16 185 129; /* Main brand color */
+    --color-primary-600: 5 150 105;
+    --color-primary-700: 4 120 87;
+    --color-primary-800: 6 95 70;
+    --color-primary-900: 6 78 59;
+    --color-primary-950: 2 44 34;
+
+    /* Secondary color - blue for healthcare */
+    --color-secondary-50: 240 249 255;
+    --color-secondary-100: 224 242 254;
+    --color-secondary-200: 186 230 253;
+    --color-secondary-300: 125 211 252;
+    --color-secondary-400: 56 189 248;
+    --color-secondary-500: 14 165 233;
+    --color-secondary-600: 2 132 199;
+    --color-secondary-700: 3 105 161;
+    --color-secondary-800: 7 89 133;
+    --color-secondary-900: 12 74 110;
+    --color-secondary-950: 8 47 73;
+}
+
+/* RTL Support */
+[dir="rtl"] body {
+    font-family: var(--font-arabic);
+}
+
+/* Custom scroll bar */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: theme('colors.gray.100');
+}
+
+::-webkit-scrollbar-thumb {
+    background: theme('colors.gray.400');
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: theme('colors.gray.500');
+}
+
+/* Dark mode scrollbar */
+.dark ::-webkit-scrollbar-track {
+    background: theme('colors.gray.800');
+}
+
+.dark ::-webkit-scrollbar-thumb {
+    background: theme('colors.gray.600');
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+    background: theme('colors.gray.500');
+}
+
+/* Custom animations */
+@keyframes pulse-once {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+}
+
+.animate-pulse-once {
+    animation: pulse-once 2s cubic-bezier(0.4, 0, 0.6, 1) 1;
+}
+
+/* Card hover effects */
+.hover-card-lift {
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.hover-card-lift:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.dark .hover-card-lift:hover {
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.25), 0 4px 6px -2px rgba(0, 0, 0, 0.15);
+}
